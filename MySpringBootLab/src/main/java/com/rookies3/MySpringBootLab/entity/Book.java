@@ -18,11 +18,11 @@ public class Book {
     private Long id;
 
     private String title;
-    private String author;
+    private String author; //수정대상
 
     @Column(unique = true, nullable = false)
     private String isbn;
 
-    private Integer price;
+    private Integer price; //수정대상
     private LocalDate publishDate;
 }
