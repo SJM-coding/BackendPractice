@@ -1,28 +1,41 @@
 package com.rookies3.MySpringBootLab.entity;
-
+import com.rookies3.MySpringBootLab.entity.BookDetail;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.DynamicUpdate;
 
 import java.time.LocalDate;
 
 @Entity
-@Getter
-@Setter
+@Table(name = "books")
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Getter
+@Setter
 public class Book {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "book_id")
     private Long id;
 
+    @Column(nullable = false)
     private String title;
-    private String author; //수정대상
+
+    @Column(nullable = false)
+    private String author;
 
     @Column(unique = true, nullable = false)
     private String isbn;
 
-    private Integer price; //수정대상
+    @Column(nullable = false)
+    private Integer price;
+
     private LocalDate publishDate;
+
+    @OneToOne(mappedBy = "book",
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY)
+    private BookDetail bookDetail;
 }
