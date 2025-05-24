@@ -1,5 +1,6 @@
 package com.rookies3.MySpringBootLab.service;
 
+
 import com.rookies3.MySpringBootLab.controller.dto.BookDTO;
 import com.rookies3.MySpringBootLab.controller.dto.PublisherDTO;
 import com.rookies3.MySpringBootLab.entity.Book;
@@ -23,7 +24,7 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
-public class BookService {
+public class BookDetailService {
 
     private final BookRepository bookRepository;
     private final PublisherRepository publisherRepository;
